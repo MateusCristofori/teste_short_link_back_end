@@ -11,7 +11,7 @@ class ShortlinkController extends Controller
 {
     public function getAllLink(): JsonResponse
     {
-        return response()->json(ShortLinkModel::all())->setStatusCode(200);
+        return response()->json(ShortLinkModel::paginate(5))->setStatusCode(200);
     }
 
     public function createURLHash(Request $request): JsonResponse

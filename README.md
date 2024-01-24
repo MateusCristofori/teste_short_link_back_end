@@ -1,66 +1,43 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# API encurtador de URL's.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+API feita em **Laravel** e **PHP**.
 
-## About Laravel
+# Requisitos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Para conseguir executar a aplicação, será necessário a instalação do composer e do PHP.
+Para a instalação do composer, basta seguir o passo a passo descrito nesse link -> `https://getcomposer.org/download/`. Após realizar a instalação do composer, será necessário colocá-lo nas variáveis de ambiente. Procure pela pasta `/bin` na pasta de instalação do composer e coloque-o no Path do sistema. Exemplo: `C:\ProgramData\ComposerSetup\bin`.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Para instalar o PHP, instale o arquivo zip listado nesse link `https://windows.php.net/download#php-8.3`. Todas as configurações de variáveis de ambiente irão se repetir para a utilização do PHP.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Instalação e execução do projeto
 
-## Learning Laravel
+## Dependências globais
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Clone o repositório e rode o comando `composer install` na pasta raiz do projeto.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Execução da aplicação
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Após a instalar todas as dependências, basta rodar o comando `php artisan serve` para iniciar a aplicação.
+A porta de execução pode ser mudada. Basta passar a flag `--port=8080`, por exemplo, e a aplicação será executa na porta 8080.
 
-## Laravel Sponsors
+Observações:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+-   Para finalizar a execução da aplicação, basta utilizar as telcas `CTRL+C` dentro da pasta raiz do projeto.
 
-### Premium Partners
+## Rotas da aplicação
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+A aplicação possui apenas um controller. Esse controller é responsável por retornar todos as URL's, criar novas URL's e retornar a URL original para a interface redirecionar o usuário.
 
-## Contributing
+1. Método "getAllLink"
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-   Esse método retorna todas as URL's com seus respectivos encurtamentos.
 
-## Code of Conduct
+2. Método "createURLHash"
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-   Esse método é responsável por encurtar uma URL. Esse método recebe, via corpo da requisição, uma URL normal e a encurta com base na geração de uma string aleatória (método Str::random()).
 
-## Security Vulnerabilities
+-   Após isso, a URL original, juntamente com seu encurtamento, serão salvos no banco de dados. O encurtamento da URL será retornado para o front_end onde o usuário terá a opção de ser redirecionado.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. Método "redirectToOriginalURL"
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   Esse método é responsável por fazer o redicionamento do usuário usando como base a URL encurtada. Esse método é executado no botão "Redirecionar" que está dentro do formulário de encurtamento de URL no Front_End.

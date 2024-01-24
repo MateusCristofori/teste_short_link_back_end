@@ -13,5 +13,6 @@ class ShortLinkModel extends Model
     protected $fillable = [
         'original_url',
         'hash',
+        'clicks'
     ];
 }

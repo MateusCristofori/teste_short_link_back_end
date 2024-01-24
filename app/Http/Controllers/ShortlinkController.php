@@ -21,7 +21,8 @@ class ShortlinkController extends Controller
 
         $shorted_link = ShortLinkModel::create([
             'original_url' => $input,
-            'hash' => "/{$hash}"
+            'hash' => "/{$hash}",
+            'clicks' => 0
         ]);
         
         if(!$shorted_link) {
@@ -37,5 +38,15 @@ class ShortlinkController extends Controller
     {
         $link = ShortLinkModel::where('hash', "/{$hash}")->firstOrFail();
         return response()->json($link)->setStatusCode(200);
+    }
+
+    public function incrementCountClicks(Request $request)
+    {
+        $input = $request->input('url_hash');
+        
+        ShortLinkModel::where('hash', $input)->increment('clicks');
+        $update_count = ShortLinkModel::where('hash', $input)->get('clicks');
+
+        return response()->json($update_count)->setStatusCode(200);
     }
 }

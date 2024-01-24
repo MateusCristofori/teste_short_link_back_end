@@ -48,4 +48,6 @@ Teremos apenas uma tabela na aplicação. Essa tabela terá as colunas de id, or
 
 Para criar a base de dados, basta executar a migration com o comando `php artisan migrate`. Todas as migrações criadas serão executadas por esse comando.
 
+O sistema está usando o SQLite como banco de dados em memória.
+
 Mais informações na <a href="https://laravel.com/docs/10.x/migrations#introduction">documentação do Laravel</a>.

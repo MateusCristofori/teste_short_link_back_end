@@ -24,3 +24,5 @@ Route::get('/', [ShortlinkController::class, 'getAllLink']);
 Route::post('/', [ShortLinkController::class, 'createURLHash']);
 
 Route::get('/{hash}', [ShortLinkController::class, 'redirectToOriginalURL']);
+
+Route::post('/click', [ShortlinkController::class, 'incrementCountClicks']);

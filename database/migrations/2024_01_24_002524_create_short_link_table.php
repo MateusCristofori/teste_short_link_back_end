@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('original_url');
             $table->string('hash');
+            $table->integer('clicks');
             $table->timestamps();
         });
     }

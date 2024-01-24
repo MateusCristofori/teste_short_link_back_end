@@ -41,3 +41,11 @@ A aplicação possui apenas um controller. Esse controller é responsável por r
 3. Método "redirectToOriginalURL"
 
 -   Esse método é responsável por fazer o redicionamento do usuário usando como base a URL encurtada. Esse método é executado no botão "Redirecionar" que está dentro do formulário de encurtamento de URL no Front_End.
+
+## Migrações e banco de dados
+
+Teremos apenas uma tabela na aplicação. Essa tabela terá as colunas de id, original_url, hash, created_at e updated_at (essas duas últimas são criadas por padrão pelo Laravel).
+
+Para criar a base de dados, basta executar a migration com o comando `php artisan migrate`. Todas as migrações criadas serão executadas por esse comando.
+
+Mais informações na <a href="https://laravel.com/docs/10.x/migrations#introduction">documentação do Laravel</a>

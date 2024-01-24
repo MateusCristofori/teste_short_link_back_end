@@ -5,7 +5,7 @@ API feita em **Laravel** e **PHP**.
 # Requisitos
 
 Para conseguir executar a aplicação, será necessário a instalação do composer e do PHP.
-Para a instalação do composer, basta seguir o passo a passo descrito nesse link -> `https://getcomposer.org/download/`. Após realizar a instalação do composer, será necessário colocá-lo nas variáveis de ambiente. Procure pela pasta `/bin` na pasta de instalação do composer e coloque-o no Path do sistema. Exemplo: `C:\ProgramData\ComposerSetup\bin`.
+Para a instalação do composer, basta seguir o passo a passo descrito nesse link <a href="https://getcomposer.org/download/">instalação do composer</a>. Após realizar a instalação do composer, será necessário colocá-lo nas variáveis de ambiente. Procure pela pasta `/bin` na pasta de instalação do composer e coloque-o no Path do sistema. Exemplo: `C:\ProgramData\ComposerSetup\bin`.
 
 Para instalar o PHP, instale o arquivo zip listado nesse link <a href="https://windows.php.net/download#php-8.3">instalação do PHP</a>. Todas as configurações de variáveis de ambiente irão se repetir para a utilização do PHP.
 

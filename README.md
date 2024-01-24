@@ -36,11 +36,15 @@ A aplicação possui apenas um controller. Esse controller é responsável por r
 
 -   Esse método é responsável por encurtar uma URL. Esse método recebe, via corpo da requisição, uma URL normal e a encurta com base na geração de uma string aleatória (método Str::random()).
 
--   Após isso, a URL original, juntamente com seu encurtamento, serão salvos no banco de dados. O encurtamento da URL será retornado para o front_end onde o usuário terá a opção de ser redirecionado.
+-   Após isso, a URL original, juntamente com seu encurtamento, serão salvos no banco de dados. O encurtamento da URL será retornado para o front end onde o usuário terá a opção de ser redirecionado.
 
 3. Método "redirectToOriginalURL"
 
--   Esse método é responsável por fazer o redicionamento do usuário usando como base a URL encurtada. Esse método é executado no botão "Redirecionar" que está dentro do formulário de encurtamento de URL no Front_End.
+-   Esse método é responsável por fazer o redicionamento do usuário usando como base a URL encurtada. Esse método é executado no botão "Redirecionar" que está dentro do formulário de encurtamento de URL no front end.
+
+4. Método "incrementCountClicks"
+
+Esse método é responsável por alterar a quantidade de click's nos link's curtos que existem no front end. Vamos apenas filtrar o elemento no banco de dados com base no hash que será enviado pelo corpo da requisição e incrementar "click+1".
 
 ## Migrações e banco de dados
 
